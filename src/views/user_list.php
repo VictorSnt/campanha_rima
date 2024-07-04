@@ -16,11 +16,11 @@
                 <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">' . htmlspecialchars($user["full_name"]) . '</h5>
-                            <p class="card-text"><strong>CPF:</strong> ' . htmlspecialchars($user["cpf"]) . '</p>
-                            <p class="card-text"><strong>Telefone:</strong> ' . htmlspecialchars($user["phone"]) . '</p>
-                            <p class="card-text"><strong>Código de Desconto:</strong> ' . htmlspecialchars($user["discount_code"]) . '</p>
-                            <p class="card-text"><strong>Data de Criação:</strong> ' . htmlspecialchars($user["created_at"]) . '</p>
+                            <h5 class="card-title">' . htmlspecialchars($user->full_name) . '</h5>
+                            <p class="card-text"><strong>CPF:</strong> ' . htmlspecialchars($user->cpf) . '</p>
+                            <p class="card-text"><strong>Telefone:</strong> ' . htmlspecialchars($user->phone) . '</p>
+                            <p class="card-text"><strong>Código de Desconto:</strong> ' . htmlspecialchars($user->discount_code) . '</p>
+                            <p class="card-text"><strong>Data de Criação:</strong> ' . htmlspecialchars($user->created_at) . '</p>
                         </div>
                     </div>
                 </div>';

@@ -1,10 +1,18 @@
 <?php
-class CodeGenerator {
-    private $conn;
+declare(strict_types=1);
 
-    public function __construct($db)
+namespace App\Util;
+
+require_once realpath(__DIR__ . "/../models/User.php");
+
+use App\Models\User;
+
+class CodeGenerator {
+    private User $userModel;
+
+    public function __construct($userModel)
     {
-        $this->conn = $db->getConnection();
+        $this->userModel = $userModel;
     }
     public function generateCode(): string
     {
@@ -20,13 +28,8 @@ class CodeGenerator {
                 $indiceAleatorio = rand(0, $comprimentoCaracteres - 1);
                 $codigoAleatorio .= $caracteres[$indiceAleatorio];
             }
-
-            $sql = "SELECT id FROM users WHERE discount_code = :discount_code";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':discount_code', $codigoAleatorio);
-            $stmt->execute();
-            $result = $stmt->fetch();
-
+            $result = $this->userModel->find("discount_code = :code", "code=$codigoAleatorio")->fetch();
+            
             if (!$result) {
                 $newCode = true;
             }

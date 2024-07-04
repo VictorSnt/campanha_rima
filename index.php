@@ -1,12 +1,27 @@
 <?php
-require_once realpath(__DIR__ . '/src/database/DatabaseHandler.php');
+declare(strict_types= 1);
 
-use App\Database\DatabaseHandler;
+require_once realpath(__DIR__ . "/vendor/autoload.php");
+require_once realpath(__DIR__ . "/src/controllers/controller.php");
 
-$database = new DatabaseHandler();
+use CoffeeCode\Router\Router;
 
-if ($database->error) {
-    var_dump($database->error->getMessage());
-}else{
-    var_dump($database->conn);
+$router = new Router(projectUrl: $_ENV['PROJECT_URL']);
+$router->namespace("App\Controllers");
+
+
+$router->group(group: null);
+$router->get(route: "/ativar_desconto", handler: "Controller:activateDiscount");
+$router->post(route: '/gerar_codigo', handler: "Controller:generateCode");
+
+
+$router->group(group: "/error");
+$router->get(route:"/{errcode}", handler: "Controller:handleEror");
+
+$router->dispatch();
+
+
+if ($router->error())
+{
+    $router->redirect("/error/{$router->error()}");
 }

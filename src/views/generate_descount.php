@@ -28,7 +28,7 @@
       margin-top: 50px;
     }
     .card {
-      background-image: url("http://localhost/campanha_rima/static/img/sunset.jpg");
+      background-image: url("https://grupoconstrufacil.com.br/campanha_rima/static/img/sunset.jpg");
       background-repeat: no-repeat; 
       background-size: cover;
       border: solid black 1px;
@@ -75,13 +75,13 @@
       <div class="card-header text-center">
         <h3>
             Você 
-            <img width="100" src="http://localhost/campanha_rima/static/img/logo_rima.png" alt="Logo Rima"> 
+            <img width="100" src="https://grupoconstrufacil.com.br/campanha_rima/static/img/logo_rima.png" alt="Logo Rima"> 
             tem vantagens 
-            <img width="100" src="http://localhost/campanha_rima/static/img/logo.png" alt="Logo Promoção">
+            <img width="100" src="https://grupoconstrufacil.com.br/campanha_rima/static/img/logo.png" alt="Logo Promoção">
         </h3>
       </div>
       <div class="card-body">
-        <form method="POST" action="/campanha_rima/gerar_codigo/">
+        <form method="POST" action="/new_campanha_rima/gerar_codigo">
         <input type="hidden" name="csrf_token" value="<?php echo $token ?>">
           
         <div class="form-group">
