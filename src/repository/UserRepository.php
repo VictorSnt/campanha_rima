@@ -15,8 +15,8 @@ class UserRepository
         $this->engine = new User();
     }
 
-    public function find(): ?User
-    {
+    public function find(): ?array
+    {   
         $data = $this->engine->find()->fetch(all: true);
         if (!$data) return null;
         return $data;

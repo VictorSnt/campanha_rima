@@ -7,8 +7,9 @@ use Datetime;
 
 class Formater
 {
-    public static function formatDates(array $objs, string $objDateProp): array
-    {
+    public static function formatDates(?array $objs, string $objDateProp): ?array
+    {   
+        if (!$objs) return null;
         foreach ($objs as $obj) 
         {
             $dateObj = new DateTime($obj->$objDateProp);

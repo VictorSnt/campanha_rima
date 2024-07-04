@@ -18,13 +18,14 @@ class Paginator
     }
     
     
-    public function getPaginatedData($userModel): array
-    {
-        $totalUsers = $userModel->find()->count();
-        $users = $userModel->find()->limit($this->perPage)->offset($this->offset)->fetch(true);
+    public function getPaginatedData(?array $data): ?array {
+        if (!$data) return null;
+        $totalUsers = count($data);
+        $offset = ($this->currentPage - 1) * $this->perPage;
+        $paginatedData = array_slice($data, $offset, $this->perPage);
         $totalPages = ceil($totalUsers / $this->perPage);
-        
-        return ["data" => $users, "totalPages" => $totalPages];
+
+        return ["data" => $paginatedData, "totalPages" => $totalPages];
     }
     
 }
