@@ -294,7 +294,7 @@
                 <div class="card-body">
                     <img width="100" src="https://grupoconstrufacil.com.br/campanha_rima/static/img/logo.png" alt="Logo Promoção">
                     <h2 class="card-title">Parabens <?php echo $first_name; ?></h2>
-                    <h4 class="card-title">Agora corre 🏃🏽‍♂️ pra comprar barato  🤩</h4>
+                    <h4 class="card-title">Agora corra 🏃🏽‍♂️ e usa esse codigo na loja e tenha condições exclusivas 🤩</h4>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" id="codigoAleatorio" value="<?php echo $discount_code; ?>" readonly>
                         <div class="input-group-append">
