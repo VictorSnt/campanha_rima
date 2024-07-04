@@ -12,6 +12,7 @@ $router->namespace("App\Controllers");
 
 $router->group(group: null);
 $router->get(route: "/ativar_desconto", handler: "Controller:activateDiscount");
+$router->get(route: '/listar_inscricoes', handler: "Controller:listSubscriptions");
 $router->post(route: '/gerar_codigo', handler: "Controller:generateCode");
 
 

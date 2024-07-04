@@ -74,6 +74,7 @@
             </div>
             <div class="col-12">
                 <h1 class="error-title">Você já está cadastrado</h1>
+                <span class="error-message"><?php if ($error) echo $error; ?></span>
                 <p class="error-message">Visite a loja para resgatar seu desconto.</p>
             </div>
             <div class="col-12">
