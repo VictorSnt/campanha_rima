@@ -5,14 +5,14 @@ namespace App\Util;
 
 require_once realpath(__DIR__ . "/../models/User.php");
 
-use App\Models\User;
+use App\Repository\UserRepository;
 
 class CodeGenerator {
-    private User $userModel;
+    private UserRepository $userRepository;
 
-    public function __construct($userModel)
+    public function __construct()
     {
-        $this->userModel = $userModel;
+        $this->userRepository = new UserRepository();
     }
     public function generateCode(): string
     {
@@ -28,7 +28,7 @@ class CodeGenerator {
                 $indiceAleatorio = rand(0, $comprimentoCaracteres - 1);
                 $codigoAleatorio .= $caracteres[$indiceAleatorio];
             }
-            $result = $this->userModel->find("discount_code = :code", "code=$codigoAleatorio")->fetch();
+            $result = $this->userRepository->findByDiscountCode($codigoAleatorio);
             
             if (!$result) {
                 $newCode = true;

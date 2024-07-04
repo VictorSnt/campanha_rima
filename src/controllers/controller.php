@@ -5,11 +5,13 @@ session_start();
 require_once realpath(__DIR__ . '/../util/CodeGenerator.php');
 require_once realpath(__DIR__ . '/../util/Paginator.php');
 require_once realpath(__DIR__ . '/../util/Formater.php');
+require_once realpath(__DIR__ . '/../repository/UserRepository.php');
 
 use App\Util\CodeGenerator;
 use App\Util\Paginator;
 use App\Util\Formater;
 use App\Models\User;
+use App\Repository\UserRepository;
 
 
 class Controller
@@ -44,43 +46,17 @@ class Controller
     public function generateCode($data) 
     {
 
-        $user = new User();
-        $codeGenerator = new CodeGenerator($user);
+        $userRepository = new UserRepository();
+        $codeGenerator = new CodeGenerator();
         $discount_code = $codeGenerator->generateCode();
 
         $name = $_POST['name'];
         $first_name = explode(' ', $name)[0];
-
-        $user->full_name = $_POST['name'];
-        $user->cpf = $_POST['cpf'];
-        $user->phone = $_POST['phone'];
-        $user->discount_code = $discount_code;
-
-        if ($user->save()) {
-
-            include_once realpath(__DIR__ . "/../views/show_code.php");
-        }else{
-            
-            if ($user->fail()->getCode() === '23000' ) {
-                $errorMessage = $user->fail()->getMessage();
-                if (strpos($errorMessage, 'Duplicate entry') !== false) {
-                    
-                    preg_match("/for key '(\w+)'/", $errorMessage, $matches);
-                    $duplicateField = $matches[1];
-                    $duplicateField = str_replace('unique_', '', $duplicateField);
-                    $error = "O $duplicateField Já esta cadastrado na promoção.";
-
-                } else {
-                    
-                    $error = "Erro: Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.";
-                }
-
-                require realpath(__DIR__ . "/../warnings/erroCodigoJaGerado.php");
-            } else {
-
-                require realpath(__DIR__ . "/../warnings/genericErro.html.php");
-            }
-        }
+        $data = array_merge($_POST, ["discount_code" => $discount_code]);
+        $response = $userRepository->createAndRenderResponse($data);
+        $error = $response["error"];
+        $view = $response["view"];
+        include_once $view;
     }
 
     public function handleEror($data) 
