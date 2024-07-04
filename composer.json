@@ -1,0 +1,22 @@
+{
+    "name": "campanha_rima/industrial",
+    "description": "Uma campanha da contrufacil para gerar um codigo de desconto para usar na loja",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Victor Santos",
+            "email": "victoorsantos266@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        },
+        "files": [
+            "src/configs/Config.php"
+        ]
+    },
+    "require": {
+       "coffeecode/datalayer": "1.1.*"
+    }
+}

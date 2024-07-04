@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocorreu um Erro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .error-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #ff0000;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #333333;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #0a408a;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Ocorreu um erro</h1>
+        <p>Lamentamos, mas ocorreu um erro durante o processamento.</p>
+        
+        <button onclick="goBack()">Voltar</button>
+    </div>
+    
+    <script>
+        function goBack() {
+            window.history.back(); // Volta para a página anterior
+        }
+    </script>
+</body>
+</html>

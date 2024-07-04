@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Sucesso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #008000;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #0a408a;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sucesso!</h1>
+    <p>Seu formulário foi enviado com sucesso.</p>
+    
+    <button onclick="goBack()">Voltar</button>
+    
+    <script>
+        function goBack() {
+            window.history.back(); // Volta para a página anterior
+        }
+    </script>
+</body>
+</html>
