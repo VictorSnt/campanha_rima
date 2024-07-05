@@ -1,10 +1,7 @@
 <?php
-   if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
-    error_reporting(0);
-    $token = bin2hex(random_bytes(32));
-    $_SESSION['csrf_token'] = $token;
+  error_reporting(0);
+  $token = bin2hex(random_bytes(32));
+  $_SESSION['csrf_token'] = $token;
 ?>
 
 <!DOCTYPE html>

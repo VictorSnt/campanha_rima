@@ -17,7 +17,7 @@ $routes = [
 ];
 
 if (array_key_exists($uri, $routes)) {
-    require_once($root . "/controllers/controller.php");
+    require_once($root . "/controllers/Controller.php");
     $controller = new Controller();
     $method = $routes[$uri];
     $controller->$method();

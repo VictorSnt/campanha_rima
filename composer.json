@@ -18,6 +18,6 @@
     },
     "require": {
        "coffeecode/datalayer": "1.1.*",
-       "coffeecode/router": "1.0.*"
+       "coffeecode/router": "^2.0"
     }
 }

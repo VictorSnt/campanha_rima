@@ -18,4 +18,14 @@ class Formater
         return $objs;
     }
     
+    public static function formatIntegritErrorMsg(string $errorMessage): string
+    {     
+        preg_match("/for key '(\w+)'/", $errorMessage, $matches);
+        $duplicateField = $matches[1];
+        $duplicateField = str_replace('unique_', '', $duplicateField);
+        $error = "O $duplicateField Já esta cadastrado na promoção.";
+        return $error;
+    }
+    
+
 }
