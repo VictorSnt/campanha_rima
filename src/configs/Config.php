@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-require_once realpath(__DIR__ . "/../util/EnvLoader.php");
+require_once realpath(__DIR__ . "/../configs/EnvLoader.php");
 
-use App\Util\EnvLoader;
+use App\Config\EnvLoader;
 
 $dotEnvPath = realpath(__DIR__ . '/../../.env');
 EnvLoader::loadEnv($dotEnvPath);

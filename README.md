@@ -5,11 +5,9 @@
 
 ## Descrição
 
-  
-
 Um website básico utilizado pela https://grupoconstrufacil.com.br em uma
 campanha que concedia condições exclusivos a funcionários da 
-**RIMA industrial** 
+**RIMA industrial**  
 
   
 
@@ -28,52 +26,12 @@ campanha que concedia condições exclusivos a funcionários da
 
 ## Funcionalidades Principais
 
-  
 
 -  **Gerar cupom de desconto**: Solicita um cadastro básico de usuário
 e gera cupom de desconto para o cliente usar na loja
 
--  **Listagem de clientes**: Uma autenticada que lista os clientes que cadastraram na promoção para receberem ofertas via WhatsApp
+-  **Listagem de clientes**: Uma rota autenticada que lista os clientes que cadastraram na promoção para receberem ofertas via WhatsApp
 
-## Estrutura do Projeto
-
-  
-
-project-root/
-
-├── src/
-
-│ ├── configs/
-
-│ ├── controllers/
-
-│ ├── database/
-
-│ ├── routes/
-
-│ ├── static/
-
-│ ├── util/
-
-│ ├── views/
-
-│ ├── warnings/
-
-├── .env.example
-
-├── .gitignore
-
-├── .htaccess
-
-├── composer.json
-
-├── composer.lock
-
-├── index.php
-
-├── README.md
-
-  
 
 ## Configuração e Instalação
 
@@ -103,6 +61,5 @@ Crie um arquivo `.env` baseado no arquivo `.env.example` e configure as variáve
 
 ## Uso
 
-  
-
-Ao clonar o repositório acesse http://localhost/ativar_desconto 
+Ao clonar o repositório acesse http://localhost/ativar_desconto e apos 
+o primeiro cadastro faça o teste das funcionalidades

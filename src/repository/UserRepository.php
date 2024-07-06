@@ -24,9 +24,17 @@ class UserRepository
         return $data;
     }
 
+    public function findCustomers(): ?array
+    {   $negative = 0;
+        $data = $this->engine->find("is_admin = :negative", "negative=$negative")->fetch(all: true);
+        if (!$data) return null;
+        return $data;
+    }
+
     public function findById(int $id): ?User
     {
-        $data = $this->engine->findById($id)->fetch(all: true);
+        $data = $this->engine->findById($id)->fetch();
+        
         if (!$data) return null;
         return $data;
     }
@@ -43,10 +51,15 @@ class UserRepository
     {
         $data = $this->engine->find("cpf = :userCpf", "userCpf=$cpf")->fetch();
         if (!$data) return null;
+        
         return $data;
     }
         
-    
+    public function setUserToNotified(User $user): void
+    {
+        $user->notified = true;
+        $user->save();
+    }
     public function createOrFail(array $data): ?PDOException
     {   
         $this->engine->full_name = $data['name'];

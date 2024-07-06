@@ -24,8 +24,11 @@ class Paginator
         $offset = ($this->currentPage - 1) * $this->perPage;
         $paginatedData = array_slice($data, $offset, $this->perPage);
         $totalPages = ceil($totalUsers / $this->perPage);
-
-        return ["data" => $paginatedData, "totalPages" => $totalPages];
+        $response = [
+            "data" => $paginatedData, "totalPages" => $totalPages,
+            "totalResults" => $totalUsers
+        ];
+        return $response;
     }
     
 }

@@ -26,7 +26,7 @@ $router->get(route: "/logout", handler: "AuthController:logout");
 
 $router->group(group: "admin")->namespace("App\Controllers");
 $router->get(route: "/", handler: "AdminController:listSubscriptions");
-
+$router->post(route: "/customer_notified", handler: "AdminController:customerNotified");
 
 $router->group(group: "error")->namespace("App\Controllers");
 $router->get(route:"/{errcode}", handler: "Controller:handleError");

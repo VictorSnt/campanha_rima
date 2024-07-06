@@ -1,14 +1,19 @@
 <?php
 namespace App\Controllers;
 
+
+require_once realpath(__DIR__ . '/../controllers/BaseController.php');
 require_once realpath(__DIR__ . '/../repository/UserRepository.php');
 require_once realpath(__DIR__ . '/../util/Validator.php');
 
+
+use App\Controllers\BaseController;
 use App\Repository\UserRepository;
 use CoffeeCode\Router\Router;
 use App\Util\Validator;
 
-class AuthController
+
+class AuthController extends BaseController
 {   
     private Router $router;
     public function __construct(Router $router)
@@ -18,7 +23,8 @@ class AuthController
     
     public function loginForm($data)
     {
-        require_once realpath(__DIR__ . "/../views/login.php");
+        $view = realpath(__DIR__ . "/../views/login.php");
+        $this->render($view);
     }
 
     public function login($data)
@@ -28,9 +34,11 @@ class AuthController
         
         $username = $_POST["username"];
         $password = $_POST["password"];
+        
         if ($this->checkCredentials($username, $password)) {      
             $_SESSION["user"] = $username;
             $this->router->redirect("/admin");
+            
         } else {
             $this->router->redirect("/auth?error=Credenciais Invalidas");;
         }

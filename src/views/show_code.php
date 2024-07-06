@@ -293,15 +293,15 @@
             <div class="card">
                 <div class="card-body">
                     <img width="100" src="https://grupoconstrufacil.com.br/campanha_rima/static/img/logo.png" alt="Logo Promoção">
-                    <h2 class="card-title">Parabens <?php echo $first_name; ?></h2>
+                    <h2 class="card-title">Parabens <?php echo $args['first_name']; ?></h2>
                     <h4 class="card-title">Agora corra 🏃🏽‍♂️ e use esse codigo na loja e tenha condições exclusivas 🤩</h4>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="codigoAleatorio" value="<?php echo $discount_code; ?>" readonly>
+                        <input type="text" class="form-control" id="codigoAleatorio" value="<?php echo $args['discount_code']; ?>" readonly>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="copiarBtn">Copiar</button>
                         </div>
                     </div>
-                    <a href="https://api.whatsapp.com/send?phone=553832516430&text=Meu codigo de desconto é <?php echo urlencode($codigoAleatorio); ?>" class="btn btn-success" target="_blank">Contatar via WhatsApp</a>
+                    <a href="https://api.whatsapp.com/send?phone=553832516430&text=Meu codigo de desconto é <?php echo urlencode($args['discount_code']); ?>" class="btn btn-success" target="_blank">Contatar via WhatsApp</a>
                 </div>
             </div>
         </div>
